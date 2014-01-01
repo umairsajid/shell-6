@@ -36,17 +36,21 @@
 #define RESET_ALL_ATTRIBUTES "\e[0m"
 
 
+char* get_user_name() {
+  return getenv("USER");
+}
+
+
 char* read_line() {
   char shell_prompt[MAX_SHELL_PROMPT_LENGTH];
   char host_name[MAX_HOST_NAME_LENGTH];
   char current_working_directory[MAX_CURRENT_WORKING_DIRECTORY_LENGTH];
 
-  char* user_name = getenv("USER");
   gethostname(host_name, MAX_HOST_NAME_LENGTH);
   getcwd(current_working_directory, MAX_CURRENT_WORKING_DIRECTORY_LENGTH);
 
   snprintf(shell_prompt, MAX_SHELL_PROMPT_LENGTH,
-           "%s%s %sat %s%s %sin %s%s %s$ %s", BLUE, user_name,
+           "%s%s %sat %s%s %sin %s%s %s$ %s", BLUE, get_user_name(),
                                               WHITE,
                                               TURQUOISE, host_name,
                                               WHITE,
