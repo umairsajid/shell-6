@@ -21,6 +21,7 @@
 #include <readline/history.h>
 #include <readline/readline.h>
 
+
 #define AUTO_COMPLETE_KEY '\t'
 #define ENVIRONMENT_VARIABLE_FOR_USER_NAME "USER"
 #define EXIT_MESSAGE "\n"
@@ -52,8 +53,8 @@ char* read_line() {
 
 int main() {
 
-  bool requested_exit = false;
   char* input_line;
+  bool requested_exit = false;
 
   rl_bind_key(AUTO_COMPLETE_KEY, rl_complete);
 
