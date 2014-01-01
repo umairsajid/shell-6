@@ -22,6 +22,7 @@
 #include <readline/readline.h>
 
 #define AUTO_COMPLETE_KEY '\t'
+#define ENVIRONMENT_VARIABLE_FOR_USER_NAME "USER"
 #define EXIT_MESSAGE "\n"
 #define EXIT_STATUS_OK 0
 #define MAX_HOST_NAME_LENGTH 64
@@ -37,7 +38,7 @@
 
 
 char* get_user_name() {
-  return getenv("USER");
+  return getenv(ENVIRONMENT_VARIABLE_FOR_USER_NAME);
 }
 
 
