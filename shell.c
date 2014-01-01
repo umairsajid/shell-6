@@ -29,13 +29,6 @@
 #define MAX_SHELL_PROMPT_LENGTH 512
 #define MAX_CURRENT_WORKING_DIRECTORY_LENGTH 512
 
-#define BLUE "\e[1;34m"
-#define GREEN "\e[1;32m"
-#define TURQUOISE "\e[1;36m"
-#define WHITE "\e[1;37m"
-
-#define RESET_ALL_ATTRIBUTES "\e[0m"
-
 
 char* get_user_name() {
   return getenv(ENVIRONMENT_VARIABLE_FOR_USER_NAME);
@@ -51,12 +44,7 @@ char* read_line() {
   getcwd(current_working_directory, MAX_CURRENT_WORKING_DIRECTORY_LENGTH);
 
   snprintf(shell_prompt, MAX_SHELL_PROMPT_LENGTH,
-           "%s%s %sat %s%s %sin %s%s %s$ %s", BLUE, get_user_name(),
-                                              WHITE,
-                                              TURQUOISE, host_name,
-                                              WHITE,
-                                              GREEN, current_working_directory,
-                                              WHITE, RESET_ALL_ATTRIBUTES);
+           "%s at %s in %s $ ", get_user_name(), host_name, current_working_directory);
 
   return readline(shell_prompt);
 }
