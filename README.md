@@ -2,6 +2,10 @@
 
 A minimal shell implementation in C.
 
+Features:
+- [X] tab completion
+- [X] history
+
 ## License
 
 shell is licensed under the
